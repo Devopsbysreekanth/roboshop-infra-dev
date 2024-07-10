@@ -44,7 +44,8 @@ pipeline {
                     steps {
                        sh """
                         cd 04-databases
-                        terraform init -reconfigure
+                        
+                        terraform init -upgrade
                         terraform apply -auto-approve
                       """
                     }
