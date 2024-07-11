@@ -39,8 +39,8 @@ pipeline {
             }
         }
         stage('DB ALB') {
-            parallel {
-                stage('DB') {
+            
+                
                     steps {
                        sh """
                         cd 04-databases
@@ -49,8 +49,12 @@ pipeline {
                         terraform apply -auto-approve
                       """
                     }
-                }
-                stage('APP ALB') {
+                
+                
+            
+        }
+
+        stage('APP ALB') {
                     steps {
                        sh """
                         cd 05-app-alb
@@ -59,8 +63,6 @@ pipeline {
                       """
                     }
                 }
-            }
-        }
        
     }
     // post build
